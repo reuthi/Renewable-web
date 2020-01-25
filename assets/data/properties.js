@@ -1,0 +1,117 @@
+let properties = [
+    
+        {
+          "Name": "Hungarian Utility",
+          "PropertyType": "Solar",
+          "MW": 76,
+          "Country": "Hungary",
+          "coordinate1": 47.1625,
+          "coordinate2": 19.5033,
+          "Percent": "100%",
+          "OperationalRole": "Operator",
+          "AssetStatus": "Development",
+          "MonthlyCashflow": "N/A",
+          "SalesPrice": "Contact for Price",
+          "Picture": "https://cdn.pixabay.com/photo/2012/03/04/00/07/alternative-21761_1280.jpg"
+        },
+        {
+          "Name": "Germany Portfolio",
+          "PropertyType": "Solar",
+          "MW": 7.7,
+          "Country": "Germany",
+          "coordinate1": 51.1657,
+          "coordinate2": 10.4515,
+          "Percent": "100%",
+          "OperationalRole": "Operator",
+          "AssetStatus": "Operating",
+          "MonthlyCashflow": "N/A",
+          "SalesPrice": "Contact for Price",
+          "Picture": "https://cdn.pixabay.com/photo/2017/09/12/13/21/photovoltaic-system-2742302_1280.jpg"
+        },
+        {
+          "Name": "USA Bluechip",
+          "PropertyType": "Solar",
+          "MW": 12.8,
+          "Country": "USA",
+          "coordinate1": 34.052200, 
+          "coordinate2": -118.243700,
+          "Percent": "100%",
+          "OperationalRole": "Operator",
+          "AssetStatus": "Operating",
+          "MonthlyCashflow": "N/A",
+          "SalesPrice": "Contact for Price",
+          "Picture": "https://cdn.pixabay.com/photo/2015/09/02/12/31/solar-panel-918492_1280.jpg"
+        },
+        {
+          "Name": "Israel High Return Small Wind",
+          "PropertyType": "Wind",
+          "MW": 0.05,
+          "Country": "Israel",
+          "coordinate1": 31.0461,
+          "coordinate2": 34.8516,
+          "Percent": "100%",
+          "OperationalRole": "Non Operator",
+          "AssetStatus": "Development",
+          "MonthlyCashflow": "N/A",
+          "SalesPrice": "Contact for Price",
+          "Picture": "https://pixabay.com/photos/pinwheel-field-cereals-sky-4550711/"
+        },
+        {
+          "Name": "Good Track Record Portfolio",
+          "PropertyType": "Solar",
+          "MW": 2.2,
+          "Country": "Israel",
+          "coordinate1": 35.0461,
+          "coordinate2": 37.8516,
+          "Percent": "42%",
+          "OperationalRole": "Operator",
+          "AssetStatus": "Operating",
+          "MonthlyCashflow": "N/A",
+          "SalesPrice": "Contact for Price",
+          "Picture": "https://pixabay.com/photos/photovoltaic-photovoltaic-system-2138992/"
+        },
+        {
+          "Name": "Rooftop Development Upside",
+          "PropertyType": "Solar",
+          "MW": 0.2,
+          "Country": "Israel",
+          "coordinate1": 30.0461,
+          "coordinate2": 33.8516,
+          "Percent": "100%",
+          "OperationalRole": "Operator",
+          "AssetStatus": "Potential Development",
+          "MonthlyCashflow": "N/A",
+          "SalesPrice": "Contact for Price",
+          "Picture": "https://pixabay.com/photos/solar-panels-placement-green-energy-943999/"
+        },
+        {
+          "Name": "USA Roof with Upside",
+          "PropertyType": "Solar",
+          "MW": 0.12,
+          "Country": "USA",
+          "coordinate1": 40.7128,
+          "coordinate2": -74.0060,
+          "Percent": "90%",
+          "OperationalRole": "Non Operator",
+          "AssetStatus": "Potential Development",
+          "MonthlyCashflow": "N/A",
+          "SalesPrice": "Contact for Price",
+          "Picture": "https://pixabay.com/photos/solar-panel-energy-photovoltaic-4249315/"
+        },
+        {
+          "Name": "High Yield South American Development",
+          "PropertyType": "Solar",
+          "MW": 40,
+          "Country": "Argentina",
+          "coordinate1": 38.4161,
+          "coordinate2": 63.6167,
+          "Percent": "80%",
+          "OperationalRole": "Non Operator",
+          "AssetStatus": "Development",
+          "MonthlyCashflow": "N/A",
+          "SalesPrice": "Contact for Price",
+          "Picture": "https://pixabay.com/photos/solar-solar-power-australia-desert-1593008/"
+        }
+      
+  ]
+

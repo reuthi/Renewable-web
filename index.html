@@ -1,0 +1,464 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Renewable Listing</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="shortcut icon" href="assets/images/favicon.png">
+	<link rel="stylesheet" href="assets/css/animate.min.css">
+	<link rel="stylesheet" href="assets/js/lib/slick/slick.css">
+	<link rel="stylesheet" href="assets/js/lib/slick/slick-theme.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/color.css">
+	<link href="/assets/css/fontawesome//css/all.css" rel="stylesheet"> <!--load all styles -->
+
+</head>
+
+<body onload="loadProperties(3)">
+	<!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
+	<div class="wrapper">
+		<header class="header"></header>
+	
+		<section id="map-container" class="fullwidth-home-map hp3">
+			<h3 class="vis-hid">Visible Heading</h3>
+			<div id="map" data-map-zoom="9"></div>
+		</section>
+
+		<section class="form-banner">
+			<h3 class="vis-hid">Invisible Heading</h3>
+			<div class="banner_form">
+				<div class="container">
+					<form action="#" class="row banner-search" onsubmit="return handleSearchClick()">
+						<div class="form_field addres">
+							<input type="text" id="country" class="form-control" placeholder="Enter country">
+						</div>
+						<div class="form_field tpmax">
+							<div class="form-group">
+								<div class="drop-menu">
+									<div class="select">
+										<span>Any type</span>
+										<i class="fa fa-angle-down"></i>
+									</div>
+									<input type="hidden" name="propertyType" id="propertyType">
+									<ul class="dropeddown">
+										<li>Solar</li>
+										<li>Wind</li>
+										<li>Hydro</li>
+										<li>Bio</li>
+										<li>Storage</li>
+										<li>Other</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="form_field tpmax">
+							<div class="form-group">
+								<div class="drop-menu">
+									<div class="select">
+										<span>Min Price</span>
+										<i class="fa fa-angle-down"></i>
+									</div>
+									<input type="hidden" name="gender">
+									<ul class="dropeddown">
+										<li>20,000$</li>
+										<li>30,000$</li>
+										<li>40,000$</li>
+										<li>50,000$</li>
+										<li>60,000$</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="form_field tpmax">
+							<div class="form-group">
+								<div class="drop-menu">
+									<div class="select">
+										<span>Max Price</span>
+										<i class="fa fa-angle-down"></i>
+									</div>
+									<input type="hidden" name="gender">
+									<ul class="dropeddown">
+										<li>60,000,000$</li>
+										<li>70,000,000$</li>
+										<li>80,000,000$</li>
+										<li>90,000,000$</li>
+										<li>100,000,000$</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="form_field srch-btn">
+							<button type="submit">
+								<!-- <a href="/" class="btn btn-outline-primary"> -->
+								<i class="la la-search"></i>
+								<span>Search</span>
+								<!-- </a> -->
+
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--banner_form end-->
+		</section>
+
+		<popups class="popups"></popups>
+
+		<!--form-banner end-->
+
+		<!-- <div class="modal" tabindex="-1" role="dialog" aria-labelledby="contactMail">
+				<div class="modal-dialog" role="document">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					  <p>Thank you for your interest, kindly email us at office@renewablelisting.com and we will get back to you with details about this deal.</p>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-primary">Save changes</button>
+					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				  </div>
+				</div>
+			  </div> -->
+
+		<section class="popular-listing hp2 section-padding">
+			<div class="container listing-row" data-toggle="modal" data-target="#contactMail">
+				<div class="row justify-content-center">
+					<div class="col-xl-6">
+						<div class="section-heading">
+							<span>Discover</span>
+							<h3>Popular Listing</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- <section class="popular-cities hp3 section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="section-heading">
+                            <span>Popular Cities</span>
+                            <h3>Find Perfect Place</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <a href="#">
+                            <div class="card">
+                                <div class="overlay"></div>
+                                <div class="overlay-stick"></div>
+                                <img src="https://via.placeholder.com/570x450" alt="" class="img-fluid">
+                                <div class="card-body">
+                                    <h4>New York</h4>
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                 <a href="#">
+                                    <div class="card mgb-30">
+                                        <div class="overlay"></div>
+                                        <div class="overlay-stick"></div>
+                                        <img src="https://via.placeholder.com/570x240" alt="" class="img-fluid">
+                                        <div class="card-body">
+                                            <h4>Los Angeles</h4>
+                                            <i class="fa fa-angle-right"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="#">
+                                    <div class="card">
+                                        <div class="overlay"></div>
+                                        <div class="overlay-stick"></div>
+                                        <img src="https://via.placeholder.com/270x180" alt="" class="img-fluid">
+                                        <div class="card-body">
+                                            <h4>Melburn</h4>
+                                            <i class="fa fa-angle-right"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="#">
+                                    <div class="card">
+                                        <div class="overlay"></div>
+                                        <div class="overlay-stick"></div>
+                                        <img src="https://via.placeholder.com/270x180" alt="" class="img-fluid">
+                                        <div class="card-body">
+                                            <h4>Seattle</h4>
+                                            <i class="fa fa-angle-right"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+		<!-- <section class="pricing-sec section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="section-heading">
+                            <span>Perfect Price</span>
+                            <h3>Explore Our Pricing</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-sec">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="price">
+                                <h4>Basic</h4>
+                                <h2>Free</h2>
+                                <ul>
+                                    <li>One Property Included</li>
+                                    <li>90 days expiration</li>
+                                    <li>Rent and sell real estate</li>
+                                    <li>Image Gallery</li>
+                                    <li>30 Days Support</li>
+                                </ul>
+                                <a href="#" title="" class="btn btn-default">Select Plan</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="price">
+                                <h4>Standart</h4>
+                                <h2>$25.50</h2>
+                                <ul>
+                                    <li>Five Property Included</li>
+                                    <li>180 days expiration</li>
+                                    <li>Rent and sell real estate</li>
+                                    <li>Image Gallery</li>
+                                    <li>90 Days Support</li>
+                                </ul>
+                                <a href="#" title="" class="btn btn-default">Select Plan</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="price">
+                                <h4>Basic</h4>
+                                <h2>$99.00</h2>
+                                <ul>
+                                    <li>Unlimited Property Included</li>
+                                    <li>280 days expiration</li>
+                                    <li>Rent and sell real estate</li>
+                                    <li>Image Gallery</li>
+                                    <li>180 Days Support</li>
+                                </ul>
+                                <a href="#" title="" class="btn btn-default">Select Plan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+		<section class="agents-sec section-padding">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-xl-6">
+						<div class="section-heading">
+							<span>Perfect Team</span>
+							<h3>Meet Our Team</h3>
+						</div>
+					</div>
+				</div>
+				<!--justify-content-center end-->
+				<div class="agents-details">
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="agent">
+								<div class="agent_img">
+									<a href="" title="">
+										<img src="./assets/images/Nadav.jpg" alt="">
+									</a>
+									<!-- <div class="view-post">
+                                        <a href="" title="" class="view-posts">View Profile</a>
+                                    </div> -->
+								</div>
+								<!--agent-img end-->
+								<div class="agent_info">
+									<h3><a href="" title="">Nadav Perl</a></h3>
+									<span>CEO</span>
+									<!-- <strong><i class="la la-phone"></i>+1 212-925-3797</strong> -->
+								</div>
+								<!--agent-info end-->
+								<a href="" title="" class="ext-link"></a>
+							</div>
+							<!--agent end-->
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="agent">
+								<div class="agent_img">
+									<a href="" title="">
+										<img src="./assets/images/reut.jpg" alt="">
+									</a>
+									<!-- <div class="view-post">
+                                        <a href="" title="" class="view-posts">View Profile</a>
+                                    </div> -->
+								</div>
+								<!--agent-img end-->
+								<div class="agent_info">
+									<h3><a href="" title="">Reut Hirshovitz</a></h3>
+									<span>CTO</span>
+									<!-- <strong><i class="la la-phone"></i>+972 52-525-900</strong> -->
+								</div>
+								<!--agent-info end-->
+								<a href="" title="" class="ext-link"></a>
+							</div>
+							<!--agent end-->
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="agent">
+								<div class="agent_img">
+									<a href="" title="">
+										<img src="./assets/images/nati.png" alt="">
+									</a>
+									<!-- <div class="view-post">
+                                        <a href="11_Agent_Profile.html" title="" class="view-posts">View Profile</a>
+                                    </div> -->
+								</div>
+								<!--agent-img end-->
+								<div class="agent_info">
+									<h3><a href="" title="">Nati Bodinger </a></h3>
+									<span>CPO</span>
+									<!-- <strong><i class="la la-phone"></i>+1 212-925-3797</strong> -->
+								</div>
+								<!--agent-info end-->
+								<a href="" title="" class="ext-link"></a>
+							</div>
+							<!--agent end-->
+						</div>
+					</div>
+				</div>
+				<!--agents-details end-->
+			</div>
+		</section>
+		<!--agents-sec end-->
+
+		<section class="partner-sec section-padding">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-xl-6">
+						<div class="section-heading">
+							<span>Trusted by the Best</span>
+							<h3>Energy Partners</h3>
+						</div>
+					</div>
+				</div>
+				<!--justify-content-center end-->
+				<div class="partners-container">
+					<div class="partner-logo">
+						<a href="#" title=""><img src="assets/partners/1.png" alt=""></a>
+					</div>
+					<!-- <div class="partner-logo">
+							<a href="#" title=""><img src="assets/partners/2.png" alt=""></a>
+						</div>  -->
+					<div class="partner-logo">
+						<a href="#" title="">
+							<p class="perel-holdings">Perl Holdings</p>
+						</a>
+					</div>
+					<div class="partner-logo">
+						<a href="#" title="">
+							<p class="perel-holdings">SOLAR FARM AUCTION</p>
+						</a>
+					</div>
+					<!-- <div class="partner-logo">
+                        <a href="#" title=""><img src="https://via.placeholder.com/136x37" alt=""></a>
+                    </div> 
+                    <div class="partner-logo">
+                        <a href="#" title=""><img src="https://via.placeholder.com/136x37" alt=""></a>
+                    </div> 
+                    <div class="partner-logo">
+                        <a href="#" title=""><img src="https://via.placeholder.com/136x37" alt=""></a>
+                    </div> 
+                    <div class="partner-logo">
+                        <a href="#" title=""><img src="https://via.placeholder.com/136x37" alt=""></a>
+                    </div> 
+                    <div class="partner-logo">
+                        <a href="#" title=""><img src="https://via.placeholder.com/136x37" alt=""></a>
+                    </div> 
+                    <div class="partner-logo">
+                        <a href="#" title=""><img src="https://via.placeholder.com/136x37" alt=""></a>
+                    </div> 
+                    <div class="partner-logo">
+                        <a href="#" title=""><img src="https://via.placeholder.com/136x37" alt=""></a>
+                    </div> 
+                    <div class="partner-logo">
+                        <a href="#" title=""><img src="https://via.placeholder.com/136x37" alt=""></a>
+                    </div>  -->
+				</div>
+			</div>
+		</section>
+		<!--agents-sec end-->
+
+		<a href="#" title="">
+			<section class="cta section-padding">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="cta-text">
+								<h2>Discover the right way to buy direct green assets</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</a>
+
+
+		<footer class="footer"></footer>
+
+
+	</div>
+	<!--wrapper end-->
+
+
+
+
+
+
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script src="assets/js/modernizr-3.6.0.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/lib/slick/slick.js"></script>
+	<script src="assets/js/scripts.js"></script>
+
+	<!-- Maps -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB63o9y-dDE80UFLeBW6WxDpsLaw4h7KME&region=US"></script>
+	<script src="assets/data/properties.js"></script>
+	<script src="assets/data/accreditationTerms.js"></script>
+	<script src="assets/js/map-cluster/infobox.min.js"></script>
+	<script src="assets/js/map-cluster/markerclusterer.js"></script>
+	<script src="assets/js/map-cluster/maps.js"></script>
+
+
+
+</body>
+
+</html>
