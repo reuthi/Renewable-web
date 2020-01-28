@@ -351,7 +351,7 @@ function register() {
             $(".wrapper").addClass("overlay-bgg");
 //         }
 //     }
-//     xmlHttp.open("post", "http://localhost:1337/auth/local/register");
+//     xmlHttp.open("post", "http://34.239.203.248:1337/auth/local/register");
 //     xmlHttp.send(data);
 }
 
@@ -370,7 +370,7 @@ function signIn() {
             location.reload();
         }
     }
-    xmlHttp.open("post", "http://localhost:1337/auth/local");
+    xmlHttp.open("post", "http://34.239.203.248:1337/auth/local");
     xmlHttp.send(data);
 }
 
