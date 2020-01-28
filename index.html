@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/color.css">
-	<link href="/assets/css/fontawesome//css/all.css" rel="stylesheet"> <!--load all styles -->
+	<link href="/assets/css/fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
 
 </head>
 
@@ -37,7 +37,7 @@
 			<h3 class="vis-hid">Invisible Heading</h3>
 			<div class="banner_form">
 				<div class="container">
-					<form action="#" class="row banner-search" onsubmit="return handleSearchClick()">
+					<form action="#" class="row banner-search" onsubmit="return handleSearchClick()" method="GET">
 						<div class="form_field addres">
 							<input type="text" id="country" class="form-control" placeholder="Enter country">
 						</div>
@@ -48,8 +48,8 @@
 										<span>Any type</span>
 										<i class="fa fa-angle-down"></i>
 									</div>
-									<input type="hidden" name="propertyType" id="propertyType">
-									<ul class="dropeddown">
+									<input type="hidden"  name="propertyType" >
+									<ul class="dropeddown" id="propertyType">
 										<li>Solar</li>
 										<li>Wind</li>
 										<li>Hydro</li>
@@ -447,7 +447,6 @@
 	<script src="assets/js/modernizr-3.6.0.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/lib/slick/slick.js"></script>
-	<script src="assets/js/scripts.js"></script>
 
 	<!-- Maps -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB63o9y-dDE80UFLeBW6WxDpsLaw4h7KME&region=US"></script>
@@ -456,6 +455,9 @@
 	<script src="assets/js/map-cluster/infobox.min.js"></script>
 	<script src="assets/js/map-cluster/markerclusterer.js"></script>
 	<script src="assets/js/map-cluster/maps.js"></script>
+	<script src="assets/js/scripts.js"></script>
+	<script src="/bundle.js"></script>
+
 
 
 

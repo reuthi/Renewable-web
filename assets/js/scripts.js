@@ -1,3 +1,4 @@
+
 let USERNAME = null
 
 let localStorageKey = {
@@ -28,6 +29,9 @@ isUserConnected()
 
 $(window).on("load", async function () {
     "use strict";
+    // console.log($)
+    // console.log(
+    startMap((this.jQuery), properties)
 
     await fetchComponent('header')
     await fetchComponent('footer')
@@ -372,16 +376,17 @@ function signIn() {
 
 function handleSearchClick() {
     const country = document.getElementById("country").value;
-    const propertyType = document.getElementsByClassName("selected")[0].innerText;
-    const newProperties = properties.filter(p => {
-        console.log("p:", p, "country", country, "PropertyType", propertyType, )
+    console.log($('li.selected'), )
+    const propertyType = $('#propertyType li.selected').text();
+    console.log("propertyType", propertyType)
+        const newProperties = properties.filter(p => {
+        console.log("p:", p, "country", country, "PropertyType", propertyType)
         return p.PropertyType === propertyType
     })
     console.log("TCL: handleSearchClick -> newProperties", newProperties)
+    startMap((this.jQuery), newProperties)
+    return false
 
-
-
-    // return true
 
 }
 

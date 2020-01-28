@@ -1,16 +1,16 @@
-! function (e) {
+function startMap (e) {
     "use strict";
-
-    function t() {
+    console.log("startMap", properties)
+    function initMap() {
         var t=new InfoBox;
         function o(propertyPage, t, country, l, i, s) {
             // console.log(propertyPage, t, country, l, i, s)
             return '<a href="' + propertyPage + '" class="listing-img-container"><div><div class="listing-item-content"><h3>' + country + "</h3><span><i class='la la-map-marker'></i>" + l + "</span></div></a>"
         }
-        let l = [],
+        let propertyMarkers = [],
             i = e("#map").attr("data-map-zoom"),
             a = e("#map").attr("data-map-scroll");
-        l = properties.map((property, index) => {
+        propertyMarkers = properties.map((property, index) => {
             console.log(property, USERNAME)
             let propertyIcon;
             console.log(property.PropertyType)
@@ -42,6 +42,9 @@
                 `<i  class="fas ${propertyIcon}"></i>`
             ]
         })
+        console.log(
+            "propertyMarkers", propertyMarkers
+        )
         if (void 0 !== i && !1 !== i) var n = parseInt(i);
         else n = 10;
         n = 3
@@ -208,29 +211,29 @@
                 enableEventPropagation: !1
             },
             f = [];
-        for (p = 0; p < l.length; p++) {
-            c = l[p][4];
-            var y = new s(new google.maps.LatLng(l[p][1], l[p][2]), m, {
+        for (p = 0; p < propertyMarkers.length; p++) {
+            c = propertyMarkers[p][4];
+            var y = new setToMap(new google.maps.LatLng(propertyMarkers[p][1], propertyMarkers[p][2]), m, {
                 marker_id: p
             }, c);
             f.push(y),
                 google.maps.event.addDomListener(y, "click", function (o, i) {
                         return function () {
                             var open = false;
-                            if (typeof l[i].open != 'undefined')
-                                open = l[i].open;
+                            if (typeof propertyMarkers[i].open != 'undefined')
+                                open = propertyMarkers[i].open;
 
-                            jQuery.each(l, function () {
+                            jQuery.each(propertyMarkers, function () {
                                 this.open = false;
                             })
                             t.close();
                             if (open) {
-                                l[i].open = false;
+                                propertyMarkers[i].open = false;
                                 return false;
                             }
-                            l[i].open = true;
+                            propertyMarkers[i].open = true;
 
-                            t.setOptions(d), g.innerHTML = l[i][0], t.open(m, o), l[i][3], google.maps.event.addListener(t, "domready", function () {
+                            t.setOptions(d), g.innerHTML = propertyMarkers[i][0], t.open(m, o), propertyMarkers[i][3], google.maps.event.addListener(t, "domready", function () {
                                 e(".infoBox-close").click(function (o) {
                                     o.preventDefault(), t.close(), e(".map-marker-container").removeClass("clicked infoBox-opened")
                                 })
@@ -291,8 +294,7 @@
             })
     }
     var o = document.getElementById("map");
-
-    function l() {
+    function buildSingleListing() {
         var t = new google.maps.LatLng({
                 lng: e("#singleListingMap").data("longitude"),
                 lat: e("#singleListingMap").data("latitude")
@@ -467,22 +469,25 @@
         }
         (l, o);
         var i = "<i class='" + e("#singleListingMap").data("map-icon") + "'></i>";
-        new s(t, o, {
+        new setToMap(t, o, {
             marker_id: "1"
         }, i)
     }
-    void 0 !== o && null != o && (google.maps.event.addDomListener(window, "load", t), google.maps.event.addDomListener(window, "resize", t));
-    var i = document.getElementById("singleListingMap");
 
-    function s(e, t, o, l) {
+    void 0 !== o && null != o && (google.maps.event.addDomListener(window, "load", initMap), google.maps.event.addDomListener(window, "resize", initMap));
+    var i = document.getElementById("singleListingMap");
+    console.trace()
+    console.log(i)
+    function setToMap(e, t, o, l) {
         this.latlng = e,
             this.args = o,
             this.markerIco = l,
             this.setMap(t)
     }
-    void 0 !== i && null != i && (google.maps.event.addDomListener(window, "load", l), google.maps.event.addDomListener(window, "resize", l)),
-        s.prototype = new google.maps.OverlayView,
-        s.prototype.draw = function () {
+    void 0 !== i && null != i && (google.maps.event.addDomListener(window, "load", buildSingleListing), google.maps.event.addDomListener(window, "resize", buildSingleListing)),
+    console.log()    
+    setToMap.prototype = new google.maps.OverlayView,
+        setToMap.prototype.draw = function () {
             console.log(this)
             var t = this,
                 o = this.div;
@@ -499,12 +504,10 @@
             var l = this.getProjection().fromLatLngToDivPixel(this.latlng);
             l && (o.style.left = l.x + "px", o.style.top = l.y + "px")
         },
-        s.prototype.remove = function () {
+        setToMap.prototype.remove = function () {
             this.div && (this.div.parentNode.removeChild(this.div), this.div = null, e(this).removeClass("clicked"))
         },
-        s.prototype.getPosition = function () {
+        setToMap.prototype.getPosition = function () {
             return this.latlng
         }
 }
-
-(this.jQuery);
