@@ -1,4 +1,4 @@
-function startMap (e) {
+!function startMap (e) {
     "use strict";
     console.log("startMap", properties)
     function initMap() {
@@ -10,7 +10,12 @@ function startMap (e) {
         let propertyMarkers = [],
             i = e("#map").attr("data-map-zoom"),
             a = e("#map").attr("data-map-scroll");
-        propertyMarkers = properties.map((property, index) => {
+
+        var url = new URL(window.location.href);
+        var country = url.searchParams.get("country");
+        var properyType = url.searchParams.get("properyType");      
+        propertyMarkers = properties.filter(property => country ? property.country === country : true && properyType ? property.properyType === property: true)
+        .map((property, index) => {
             console.log(property, USERNAME)
             let propertyIcon;
             console.log(property.PropertyType)
@@ -510,4 +515,4 @@ function startMap (e) {
         setToMap.prototype.getPosition = function () {
             return this.latlng
         }
-}
+}(this.jQuery)

@@ -9,7 +9,7 @@ let localStorageKey = {
 const users = []
 function isUserConnected() {
     console.log("isUser", localStorage.getItem(localStorageKey.username))
-    if (localStorage.getItem(localStorageKey.username)) {
+    if (localStorage.getItem(localStorageKey.jwt)) {
         USERNAME = localStorage.getItem(localStorageKey.usaername)
         console.log(USERNAME)
         $(".signin-btn").hide()
@@ -29,9 +29,9 @@ isUserConnected()
 
 $(window).on("load", async function () {
     "use strict";
-    // console.log($)
-    // console.log(
-    startMap((this.jQuery), properties)
+
+
+    // startMap((this.jQuery), properties)
 
     await fetchComponent('header')
     await fetchComponent('footer')
@@ -338,24 +338,27 @@ function register() {
 
     users.push(user)
     console.log("users:", users)
-//     var xmlHttp = new XMLHttpRequest();
-//     xmlHttp.onreadystatechange = function () {
-//         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-//             const jwt = JSON.parse(xmlHttp.response).jwt
-            // saveToLocalStorage(localStorageKey.jwt, jwt);
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            const jwt = JSON.parse(xmlHttp.response).jwt
+            saveToLocalStorage(localStorageKey.jwt, jwt);
             console.log($("input[name='username']"))
             saveToLocalStorage(localStorageKey.usaername, $("input[name='username']")[0].value);
             $("#thankyou-popup").toggleClass("active");
             $("#register-popup").removeClass("active");
             $("#sign-popup").removeClass("active");
             $(".wrapper").addClass("overlay-bgg");
-//         }
-//     }
-//     xmlHttp.open("post", "http://34.239.203.248:1337/auth/local/register");
-//     xmlHttp.send(data);
+        }
+    }
+    xmlHttp.open("post", "http://34.239.203.248:1337/auth/local/register");
+    xmlHttp.send(data);
+    return false
 }
 
-function signIn() {
+function signIn(e) {
+    e.preventDefault();
+
     console.log('signing', )
     console.log(document.querySelectorAll('form')[1])
     const data = new FormData(document.querySelectorAll('form')[1])
@@ -367,11 +370,13 @@ function signIn() {
             console.log(JSON.parse(xmlHttp.response).user.usaername, JSON.parse(xmlHttp.response).user, JSON.parse(xmlHttp.response))
             saveToLocalStorage(localStorageKey.jwt, jwt);
             saveToLocalStorage(localStorageKey.usaername, JSON.parse(xmlHttp.response).user.username);
-            location.reload();
+            return false
         }
     }
     xmlHttp.open("post", "http://34.239.203.248:1337/auth/local");
     xmlHttp.send(data);
+    return false
+
 }
 
 function handleSearchClick() {

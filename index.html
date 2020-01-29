@@ -39,7 +39,7 @@
 				<div class="container">
 					<form action="#" class="row banner-search" onsubmit="return handleSearchClick()" method="GET">
 						<div class="form_field addres">
-							<input type="text" id="country" class="form-control" placeholder="Enter country">
+							<input type="text" id="country" name="country" class="form-control" placeholder="Enter country">
 						</div>
 						<div class="form_field tpmax">
 							<div class="form-group">
@@ -48,7 +48,7 @@
 										<span>Any type</span>
 										<i class="fa fa-angle-down"></i>
 									</div>
-									<input type="hidden"  name="propertyType" >
+									<input type="hidden" name="propertyType" >
 									<ul class="dropeddown" id="propertyType">
 										<li>Solar</li>
 										<li>Wind</li>
@@ -67,7 +67,7 @@
 										<span>Min Price</span>
 										<i class="fa fa-angle-down"></i>
 									</div>
-									<input type="hidden" name="gender">
+									<input type="hidden">
 									<ul class="dropeddown">
 										<li>20,000$</li>
 										<li>30,000$</li>
@@ -97,12 +97,9 @@
 							</div>
 						</div>
 						<div class="form_field srch-btn">
-							<button type="submit">
-								<!-- <a href="/" class="btn btn-outline-primary"> -->
+							<button type="submit" class="btn btn-outline-primary">
 								<i class="la la-search"></i>
 								<span>Search</span>
-								<!-- </a> -->
-
 							</button>
 						</div>
 					</form>
