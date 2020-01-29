@@ -1,4 +1,3 @@
-
 let USERNAME = null
 
 let localStorageKey = {
@@ -7,20 +6,21 @@ let localStorageKey = {
 }
 
 const users = []
+
 function isUserConnected() {
     console.log("isUser", localStorage.getItem(localStorageKey.username))
     if (localStorage.getItem(localStorageKey.jwt)) {
         USERNAME = localStorage.getItem(localStorageKey.usaername)
         console.log(USERNAME)
         $(".signin-btn").hide()
-        $( ".username-info").append( `
+        $(".username-info").append(`
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <span><b class="">Hello, ${USERNAME}</b></span>
                 </a>
             </li>
         `);
-    } 
+    }
 }
 isUserConnected()
 
@@ -253,37 +253,39 @@ function loadProperties(length) {
     // console.log(window.location.href);
 
     properties.slice(0, end).forEach((property, index) => {
+        console.log("properties", property)
+
         div.innerHTML +=
             `<div class="col-lg-4 col-md-4 col-sm-6">
-        <div class="card">
-<div class="open-contact-popup">
-    <div class="img-block">
-        <div class="overlay"></div>
-        <img src="assets/properties/${index+1}.jpg" alt="" class="img-fluid">
-        <div class="rate-info">
-            <h5>${property.SalesPrice}</h5>
-            <span>${property.AssetStatus}</span>
-        </div>
-    </div>
-</div>
-<div class="card-body">
-    <a href="" title="">
-        <h3>${property.Name}</h3>
-        <p> <i class="la la-map-marker"></i>${property.Country}</p>
-    </a>
-    <ul>
-        <li>${property.MW} MW</li>
-        <li>${property.PropertyType}</li>
-        <li>${property.Percent}</li>
-    </ul>
-</div>
-<div class="card-footer">
-    <a href="#" class="pull-left">
-        <i class="la la-heart-o"></i>
-    </a>
-</div>
-<a href="" title="" class="ext-link"></a>
-</div>  </div>`
+                    <div class="card">
+            <div class="open-contact-popup">
+                <div class="img-block">
+                    <div class="overlay"></div>
+                    <img src="assets/properties/${index+1}.jpg" alt="" class="img-fluid">
+                    <div class="rate-info">
+                        <h5>${property.salesPrice}</h5>
+                        <span>${property.assetStatus}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <a href="" title="">
+                    <h3>${property.name}</h3>
+                    <p> <i class="la la-map-marker"></i>${property.country}</p>
+                </a>
+                <ul>
+                    <li>${property.mw} MW</li>
+                    <li>${property.propertyType}</li>
+                    <li>${property.percent}</li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="pull-left">
+                    <i class="la la-heart-o"></i>
+                </a>
+            </div>
+            <a href="" title="" class="ext-link"></a>
+            </div>  </div>`
     })
     const container = document.getElementsByClassName('listing-row')[0];
     if (container) {
@@ -322,7 +324,7 @@ function register() {
     //         ...obj,
     //         [keys[index]]: data[index]
     //     }
-        
+
     // }
     console.log($("input[name='username']")[0].value)
     console.log($("input[name='email']")[0].value)
@@ -384,7 +386,7 @@ function handleSearchClick() {
     console.log($('li.selected'), )
     const propertyType = $('#propertyType li.selected').text();
     console.log("propertyType", propertyType)
-        const newProperties = properties.filter(p => {
+    const newProperties = properties.filter(p => {
         console.log("p:", p, "country", country, "PropertyType", propertyType)
         return p.PropertyType === propertyType
     })
