@@ -6,7 +6,7 @@ function getProperties() {
             properties = [...properties, ...JSON.parse(xmlHttp.response)]
         }
     }
-    xmlHttp.open("get", "http://localhost:1337/Properties");
+    xmlHttp.open("get", "http://34.239.203.248:1337/Properties");
     xmlHttp.send();  
 }
 
