@@ -382,19 +382,12 @@ function signIn(e) {
 }
 
 function handleSearchClick() {
-    const country = document.getElementById("country").value;
-    console.log($('li.selected'), )
+    const country = $('#country li.selected').text();
     const propertyType = $('#propertyType li.selected').text();
-    console.log("propertyType", propertyType)
     const newProperties = properties.filter(p => {
         console.log("p:", p, "country", country, "PropertyType", propertyType)
         return p.PropertyType === propertyType
     })
-    console.log("TCL: handleSearchClick -> newProperties", newProperties)
-    startMap((this.jQuery), newProperties)
-    return false
-
-
 }
 
 function saveToLocalStorage(key, value) {

@@ -6716,3 +6716,17 @@ label.error {
 .terms {
   text-align: left;
 }
+
+.drop {
+  background: #fff;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    height: 100%;
+    text-align: left;
+    margin: 7px 0;
+    border-left: 1px solid #e0e1e6;
+    /* padding-left: 10px; */
+    padding: 5px 10px 5px 10px;
+}

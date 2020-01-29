@@ -1,6 +1,5 @@
 !function startMap (e) {
     "use strict";
-    console.log("startMap", properties)
     function initMap() {
         var t=new InfoBox;
         function o(propertyPage, t, country, l, i, s) {
@@ -16,9 +15,7 @@
         var properyType = url.searchParams.get("properyType");      
         propertyMarkers = properties.filter(property => country ? property.country === country : true && properyType ? property.properyType === property: true)
         .map((property, index) => {
-            console.log(property, USERNAME)
             let propertyIcon;
-            console.log(property.PropertyType)
             switch (property.PropertyType) {
                 case 'Wind':
                     propertyIcon = 'fa-wind'
@@ -47,9 +44,6 @@
                 `<i  class="fas ${propertyIcon}"></i>`
             ]
         })
-        console.log(
-            "propertyMarkers", propertyMarkers
-        )
         if (void 0 !== i && !1 !== i) var n = parseInt(i);
         else n = 10;
         n = 3
@@ -481,8 +475,6 @@
 
     void 0 !== o && null != o && (google.maps.event.addDomListener(window, "load", initMap), google.maps.event.addDomListener(window, "resize", initMap));
     var i = document.getElementById("singleListingMap");
-    console.trace()
-    console.log(i)
     function setToMap(e, t, o, l) {
         this.latlng = e,
             this.args = o,
@@ -490,10 +482,8 @@
             this.setMap(t)
     }
     void 0 !== i && null != i && (google.maps.event.addDomListener(window, "load", buildSingleListing), google.maps.event.addDomListener(window, "resize", buildSingleListing)),
-    console.log()    
     setToMap.prototype = new google.maps.OverlayView,
         setToMap.prototype.draw = function () {
-            console.log(this)
             var t = this,
                 o = this.div;
             o || ((o = this.div = document.createElement("div")).className = "map-marker-container", o.innerHTML = '<div class="marker-container"><div class="marker-card"><div class="front face">' + t.markerIco + '</div><div class="back face">' + t.markerIco + '</div><div class="marker-arrow"></div></div></div>', google.maps.event.addDomListener(o, "click", function (o) {
