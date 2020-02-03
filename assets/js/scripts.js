@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 $(window).on("load", async function () {
     "use strict";
 
@@ -230,12 +224,11 @@ function displayTerms() {
     const country = select.options[select.selectedIndex].value;
     // console.log(country)
     const termsDiv = document.getElementsByClassName('terms')[0]
-    console.log(termsDiv)
     termsDiv.textContent = accrediatiaionTerms.filter(term => {
         // console.log(term.Country, country)
         return term.Country === country
     }).map(term => {
-        console.log(term)
+        
         return term.Text
     })[0]
 }
@@ -256,8 +249,8 @@ function handleSearchClick() {
 function markHeaderByUrl() {
     var url = new URL(window.location.href);
     console.log(url.pathname)
-    var page = document.getElementById();
-    console.log("page:", page)
+    // var page = document.getElementById();
+    // console.log("page:", page)
 
 }
 

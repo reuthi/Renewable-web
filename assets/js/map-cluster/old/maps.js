@@ -1,10 +1,8 @@
 
 function startMap(jquery,propertiesToRender) {
     "use strict";
-    console.log("e", propertiesToRender)
 
     function initMap() {
-        console.log('initing map')
         var t = new InfoBox;
 
         function o(propertyPage, t, country, l, i, s) {

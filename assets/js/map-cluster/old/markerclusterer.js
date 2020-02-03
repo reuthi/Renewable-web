@@ -351,7 +351,6 @@ Cluster.prototype.addMarker = function (marker) {
     var len = this.markers_.length;
 
     this.markers_ = this.markers_.map(marker => new google.maps.Marker(marker)) 
-    console.log(marker)
     marker = new google.maps.Marker(marker)
     if (len < this.minClusterSize_ && marker.getMap() != this.map_) {
         marker.setMap(this.map_);

@@ -10,8 +10,7 @@ async function register() {
     const password = $("input[name='password']")[1].value
 
     const url = `username=${username}&email=${email}&password=${password}`;
-    const response = await makeRequest("post", "http://34.239.203.248:1337/auth/local/register", url)
-    console.log(response)
+    const response = await makeRequest("post", `${apiUrl}/auth/local/register`, url)
     const jwt = JSON.parse(response).jwt
     saveToLocalStorage(localStorageKey.jwt, jwt);
     saveToLocalStorage(localStorageKey.username, username);
@@ -26,7 +25,6 @@ function isUserConnected() {
     console.log("isUser", localStorage.getItem(localStorageKey.username))
     if (localStorage.getItem(localStorageKey.jwt)) {
         USERNAME = localStorage.getItem(localStorageKey.username)
-        console.log(USERNAME)
         $(".signin-btn").hide()
         $(".username-info").append(`
             <li class="nav-item">
@@ -41,8 +39,8 @@ isUserConnected()
 
 
 function signIn(e) {
+    // TODO
     e.preventDefault();
-
     console.log('signing', )
     console.log(document.querySelectorAll('form')[1])
     const data = new FormData(document.querySelectorAll('form')[1])
@@ -57,22 +55,10 @@ function signIn(e) {
             return false
         }
     }
-    xmlHttp.open("post", "http://34.239.203.248:1337/auth/local");
+    xmlHttp.open("post", `${apiUrl}/auth/local`);
     xmlHttp.send(data);
     return false
 
 }
 
-function saveToLocalStorage(key, value) {
-    localStorage.setItem(key, value);
-}
 
-
-
-function openSignIn() {
-    console.log("hello", $("#sign-popup"))
-    $("#sign-popup").toggleClass("active");
-    console.log(($("#sign-popup")))
-    $("#register-popup").removeClass("active");
-    $(".wrapper").addClass("overlay-bgg");
-}

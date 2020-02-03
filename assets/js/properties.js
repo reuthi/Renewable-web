@@ -1,7 +1,6 @@
 async function getProperties() {
-    const response = await makeRequest("get", "http://34.239.203.248:1337/Properties")
+    const response = await makeRequest("get", `${apiUrl}/Properties`)
     properties = [...properties, ...JSON.parse(response)]
-    console.log("proerties", properties)
 }
 
 async function loadProperties(length) {
@@ -9,9 +8,7 @@ async function loadProperties(length) {
     const div = document.createElement('div');
     div.className = 'row'
     const end = length ? length : properties.length
-    console.log(properties)
     properties.slice(0, end).forEach((property, index) => {
-        console.log("properties", property)
         div.innerHTML +=
             `<div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="card">
@@ -46,8 +43,6 @@ async function loadProperties(length) {
     })
     const container = document.getElementsByClassName('listing-row')[0];
     if (container) {
-        console.log(container)
-
         container.appendChild(div)
     }
 }
