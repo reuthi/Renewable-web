@@ -1,28 +1,6 @@
-let USERNAME = null
 
-let localStorageKey = {
-    jwt: "renewableJwt",
-    usaername: "renewableUsername"
-}
 
-const users = []
 
-function isUserConnected() {
-    console.log("isUser", localStorage.getItem(localStorageKey.username))
-    if (localStorage.getItem(localStorageKey.jwt)) {
-        USERNAME = localStorage.getItem(localStorageKey.usaername)
-        console.log(USERNAME)
-        $(".signin-btn").hide()
-        $(".username-info").append(`
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <span><b class="">Hello, ${USERNAME}</b></span>
-                </a>
-            </li>
-        `);
-    }
-}
-isUserConnected()
 
 
 
@@ -31,14 +9,12 @@ $(window).on("load", async function () {
     "use strict";
 
 
-    // startMap((this.jQuery), properties)
-
     await fetchComponent('header')
     await fetchComponent('footer')
     await fetchComponent('popups')
 
     isUserConnected()
-
+    markHeaderByUrl()
 
     $(".features-dv form ul li input:checkbox").on("click", function () {
         return false;
@@ -246,54 +222,7 @@ async function fetchComponent(compName) {
 }
 
 
-function loadProperties(length) {
-    const div = document.createElement('div');
-    div.className = 'row'
-    const end = length ? length : properties.length
-    // console.log(window.location.href);
 
-    properties.slice(0, end).forEach((property, index) => {
-        console.log("properties", property)
-
-        div.innerHTML +=
-            `<div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="card">
-            <div class="open-contact-popup">
-                <div class="img-block">
-                    <div class="overlay"></div>
-                    <img src="assets/properties/${index+1}.jpg" alt="" class="img-fluid">
-                    <div class="rate-info">
-                        <h5>${property.salesPrice}</h5>
-                        <span>${property.assetStatus}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <a href="" title="">
-                    <h3>${property.name}</h3>
-                    <p> <i class="la la-map-marker"></i>${property.country}</p>
-                </a>
-                <ul>
-                    <li>${property.mw} MW</li>
-                    <li>${property.propertyType}</li>
-                    <li>${property.percent}</li>
-                </ul>
-            </div>
-            <div class="card-footer">
-                <a href="#" class="pull-left">
-                    <i class="la la-heart-o"></i>
-                </a>
-            </div>
-            <a href="" title="" class="ext-link"></a>
-            </div>  </div>`
-    })
-    const container = document.getElementsByClassName('listing-row')[0];
-    if (container) {
-        console.log(container)
-
-        container.appendChild(div)
-    }
-}
 
 function displayTerms() {
     const select = document.getElementsByClassName('select-country')[0]
@@ -311,75 +240,7 @@ function displayTerms() {
     })[0]
 }
 
-function register() {
-    const keys = ['username', 'email', 'passwords', 'country']
-    console.log('registering', )
-    // console.log(document.querySelectorAll('form')[2])
-    // const data = new FormData(document.querySelectorAll('form')[2])
-    // console.log(...data ,typeof data)
-    // let obj = {}
-    // for (let index = 0; index < keys.length; index++) {
-    //     console.log()
-    //     obj = {
-    //         ...obj,
-    //         [keys[index]]: data[index]
-    //     }
 
-    // }
-    console.log($("input[name='username']")[0].value)
-    console.log($("input[name='email']")[0].value)
-    console.log($("input[name='password']")[0].value)
-    console.log($("input[name='country']"))
-
-
-    const user = {
-        username: $("input[name='username']")[0].value,
-        email: $("input[name='email']")[0].value,
-        password: $("input[name='password']")[0].value,
-    }
-
-    users.push(user)
-    console.log("users:", users)
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function () {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            const jwt = JSON.parse(xmlHttp.response).jwt
-            saveToLocalStorage(localStorageKey.jwt, jwt);
-            console.log($("input[name='username']"))
-            saveToLocalStorage(localStorageKey.usaername, $("input[name='username']")[0].value);
-            $("#thankyou-popup").toggleClass("active");
-            $("#register-popup").removeClass("active");
-            $("#sign-popup").removeClass("active");
-            $(".wrapper").addClass("overlay-bgg");
-        }
-    }
-    xmlHttp.open("post", "http://34.239.203.248:1337/auth/local/register");
-    xmlHttp.send(data);
-    return false
-}
-
-function signIn(e) {
-    e.preventDefault();
-
-    console.log('signing', )
-    console.log(document.querySelectorAll('form')[1])
-    const data = new FormData(document.querySelectorAll('form')[1])
-    console.log(...data)
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function () {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-            const jwt = JSON.parse(xmlHttp.response).jwt
-            console.log(JSON.parse(xmlHttp.response).user.usaername, JSON.parse(xmlHttp.response).user, JSON.parse(xmlHttp.response))
-            saveToLocalStorage(localStorageKey.jwt, jwt);
-            saveToLocalStorage(localStorageKey.usaername, JSON.parse(xmlHttp.response).user.username);
-            return false
-        }
-    }
-    xmlHttp.open("post", "http://34.239.203.248:1337/auth/local");
-    xmlHttp.send(data);
-    return false
-
-}
 
 function handleSearchClick() {
     const country = $('#country li.selected').text();
@@ -390,16 +251,13 @@ function handleSearchClick() {
     })
 }
 
-function saveToLocalStorage(key, value) {
-    localStorage.setItem(key, value);
+// TODO:
+
+function markHeaderByUrl() {
+    var url = new URL(window.location.href);
+    console.log(url.pathname)
+    var page = document.getElementById();
+    console.log("page:", page)
+
 }
 
-
-
-function openSignIn() {
-    console.log("hello", $("#sign-popup"))
-    $("#sign-popup").toggleClass("active");
-    console.log(($("#sign-popup")))
-    $("#register-popup").removeClass("active");
-    $(".wrapper").addClass("overlay-bgg");
-}
