@@ -24,7 +24,7 @@
 
 
 
-@import url(../icons/font-awesome/css/font-awesome.min.css);
+/* @import url(../icons/fontawesome/css/fontawesome.min.css); */
 @import url(../icons/simple-line-icons/css/simple-line-icons.css);
 @import url(../icons/simple-line-icons/css/line-awesome.min.css);
 @import url(bootstrap.min.css);
@@ -398,7 +398,7 @@ a,
 }
 
 .ext-link span {
-  font-size: 2em;
+  font-size: 1em;
   color: transparent
 }
 
@@ -5803,9 +5803,9 @@ header.pb .header .navbar-nav .submit-btn a:hover {
 }
 
 .partner-logo {
-  float: left;
+  /* float: left;
   width: 100%;
-  outline: none;
+  outline: none; */
 }
 
 .partner-logo>a img {

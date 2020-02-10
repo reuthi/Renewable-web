@@ -16,23 +16,23 @@
         propertyMarkers = properties.filter(property => country ? property.country === country : true && properyType ? property.properyType === property: true)
         .map((property, index) => {
             let propertyIcon;
-            switch (property.PropertyType) {
-                case 'Wind':
+            switch (property.propertyType) {
+                case 'wind':
                     propertyIcon = 'fa-wind'
                     break;
-                case 'Solar':
+                case 'solar':
                     propertyIcon = 'fa-solar-panel'
                     break;
-                case 'Hydro':
+                case 'hydro':
                     propertyIcon = 'fa-water'
                     break;
-                case 'Bio':
+                case 'bio':
                     propertyIcon = 'fa-leaf'
                     break;
-                case 'Storage':
+                case 'storage':
                     propertyIcon = 'fa-box-open'
                     break;
-                case 'Other':
+                case 'other':
                     propertyIcon = ''
                     break;
             }

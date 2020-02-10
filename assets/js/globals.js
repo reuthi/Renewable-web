@@ -1,4 +1,5 @@
 let properties = []
+let posts = []
 let USERNAME = null
 
 let localStorageKey = {
@@ -7,4 +8,4 @@ let localStorageKey = {
 }
 
 const users = [] // TODO
-const apiUrl = 'http://34.239.203.248:1337'
+const apiUrl = 'http://34.224.145.233:1337'
