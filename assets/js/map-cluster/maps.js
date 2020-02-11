@@ -38,8 +38,8 @@
             }
             const propertyPage = USERNAME ? "24_Property_Single.html" + `?${index}` : '/#'
             return [o(propertyPage, `assets/images/listing/${+1}.jpg`, "", `${property.Country}`),
-                property.coordinate1,
-                property.coordinate2,
+                property.lat,
+                property.lng,
                 index + 1,
                 `<i  class="fas ${propertyIcon}"></i>`
             ]

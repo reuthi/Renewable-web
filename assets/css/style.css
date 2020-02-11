@@ -5803,9 +5803,8 @@ header.pb .header .navbar-nav .submit-btn a:hover {
 }
 
 .partner-logo {
-  /* float: left;
-  width: 100%;
-  outline: none; */
+  display: flex;
+  justify-content: center;
 }
 
 .partner-logo>a img {
