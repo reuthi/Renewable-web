@@ -1,6 +1,8 @@
 async function getPosts() {
-    const response = await makeRequest("get", `${apiUrl}/Posts`)
-    posts = [...posts, ...JSON.parse(response)]
+    // const response = await makeRequest("get", `${apiUrl}/Posts`)
+    // posts = [...posts, ...JSON.parse(response)]
+    posts = [...posts, ...dataPosts]
+
 }
 
 async function loadPosts() {
