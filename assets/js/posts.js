@@ -1,7 +1,7 @@
 async function getPosts() {
-    // const response = await makeRequest("get", `${apiUrl}/Posts`)
-    // posts = [...posts, ...JSON.parse(response)]
-    posts = [...posts, ...dataPosts]
+    const response = await makeRequest("get", `${apiUrl}/Posts`)
+    posts = [...posts, ...JSON.parse(response)]
+    // posts = [...posts, ...dataPosts]
 
 }
 
