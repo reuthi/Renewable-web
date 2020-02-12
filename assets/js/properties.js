@@ -1,6 +1,10 @@
+
 async function getProperties() {
-    const response = await makeRequest("get", `${apiUrl}/Properties`)
-    properties = [...properties, ...JSON.parse(response)]
+    // const response = await makeRequest("get", `${apiUrl}/Properties`)
+    properties = [...properties, ...dataProperties]
+    // fs.writeFile('myjsonfile.json', JSON.parse(response), 'utf8');
+    // return 
+
 }
 
 async function loadProperties(length) {
