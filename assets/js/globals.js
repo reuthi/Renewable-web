@@ -24,5 +24,5 @@ const propertyDetailsKeys = {
     'ConstructionDate': 'Construction date'
 }
 const users = [] // TODO
-const apiUrl = 'http://34.224.145.233:1337'
+const apiUrl = 'http://localhost:1337'
 const APIKEY = 'AIzaSyB8n_A68NSAQdSQ_Qd7L5r0hfteOUFwlUY'
