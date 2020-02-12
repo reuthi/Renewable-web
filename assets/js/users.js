@@ -1,4 +1,8 @@
 
+function saveToLocalStorage(key, value) {
+    localStorage.setItem(key, value);
+}
+
 async function register() {
     console.log($("input[name='username']")[0].value)
     console.log($("input[name='email']")[0].value)
@@ -60,5 +64,7 @@ function signIn(e) {
     return false
 
 }
+
+
 
 

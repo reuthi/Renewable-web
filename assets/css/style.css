@@ -6729,3 +6729,11 @@ label.error {
     /* padding-left: 10px; */
     padding: 5px 10px 5px 10px;
 }
+
+.terms-container {
+  padding: 2%;
+  font-family: "Raleway", sans-serif !important;
+
+  /* font-family: "Poppins" !important; */
+
+}
