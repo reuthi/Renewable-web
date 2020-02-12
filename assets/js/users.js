@@ -14,15 +14,24 @@ async function register() {
     const password = $("input[name='password']")[1].value
 
     const url = `username=${username}&email=${email}&password=${password}`;
-    const response = await makeRequest("post", `${apiUrl}/auth/local/register`, url)
-    const jwt = JSON.parse(response).jwt
-    saveToLocalStorage(localStorageKey.jwt, jwt);
-    saveToLocalStorage(localStorageKey.username, username);
-    $("#thankyou-popup").toggleClass("active");
-    $("#register-popup").removeClass("active");
-    $("#sign-popup").removeClass("active");
-    $(".wrapper").addClass("overlay-bgg");
-    return false
+    try {
+        const response = await makeRequest("post", `${apiUrl}/auth/local/register`, url)
+        console.log("response", response)
+        const jwt = JSON.parse(response).jwt
+        saveToLocalStorage(localStorageKey.jwt, jwt);
+        saveToLocalStorage(localStorageKey.username, username);
+        $("#thankyou-popup").toggleClass("active");
+        $("#register-popup").removeClass("active");
+        $("#sign-popup").removeClass("active");
+        $(".wrapper").addClass("overlay-bgg");
+        isUserConnected()
+        return false
+    } catch (error) {
+
+        console.log("erroe", $(".register-error"), JSON.parse(error.statusText).message[0].messages[0].message)
+        $(".register-error").html(JSON.parse(error.statusText).message[0].messages[0].message)
+    }
+
 }
 
 function isUserConnected() {

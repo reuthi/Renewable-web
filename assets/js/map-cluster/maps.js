@@ -12,8 +12,16 @@
 
         var url = new URL(window.location.href);
         var country = url.searchParams.get("country");
-        var properyType = url.searchParams.get("properyType");      
-        propertyMarkers = properties.filter(property => country ? property.country === country : true && properyType ? property.properyType === property: true)
+        var properyType = url.searchParams.get("properyType");    
+        var min = url.searchParams.get("min");      
+        var max = url.searchParams.get("max");      
+
+        propertyMarkers = properties.filter(property => 
+            country ? property.country === country : true 
+            && properyType ? property.properyType === property: true
+            && min ? property.salesPrice ? property.salesPrice > min : true :true
+            && max ? property.salesPrice ? property.salesPrice < max : true :true
+            )
         .map((property, index) => {
             let propertyIcon;
             switch (property.propertyType) {

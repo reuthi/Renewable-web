@@ -7,9 +7,10 @@ function makeRequest(method, url, data) {
             if (this.status >= 200 && this.status < 300) {
                 resolve(xhr.response);
             } else {
+                console.log('xhr', xhr)
                 reject({
                     status: this.status,
-                    statusText: xhr.statusText
+                    statusText: xhr.response
                 });
             }
         };

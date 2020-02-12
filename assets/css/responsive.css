@@ -319,7 +319,7 @@
 	.banner .tpmax, .banner .addres {padding: 0;}
 	.banner_form .banner-search {margin: 0;}
 	.addres {width: 100%;margin-bottom: 10px;}
-	.tpmax {width: 100%;}
+	.tpmax {width: 100%;     margin-bottom: 10px;	}
 	.banner-content h1 {font-size: 22px;line-height: 34px;}
 	.bottom-logo {margin-bottom: 30px;}
 	.bottom-desc {padding: 0 15px;}

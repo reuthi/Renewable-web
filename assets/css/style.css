@@ -6733,7 +6733,8 @@ label.error {
 .terms-container {
   padding: 2%;
   font-family: "Raleway", sans-serif !important;
+}
 
-  /* font-family: "Poppins" !important; */
-
+.register-error {
+  color: red;
 }

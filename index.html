@@ -41,7 +41,7 @@
 					<form action="#" class="row banner-search" onsubmit="return handleSearchClick()" method="GET">
 						<div class="form_field addres">
 							<select id="country" name="country" class="form-control">
-								<option value="">Choose country</option>
+								<option selected value="">Choose country</option>
 								<option value="Afganistan">Afghanistan</option>
 								<option value="Albania">Albania</option>
 								<option value="Algeria">Algeria</option>
@@ -294,15 +294,13 @@
 							<!-- <div class="form-group"> -->
 							<!-- <div class=""> -->
 							<select name="propertyType" class="form-control">
-								<option value="">Any type</option>
+								<option selected value="">Any type</option>
 								<option value="solar">Solar</option>
 								<option value="wind">Wind</option>
 								<option value="hydro">Hydro</option>
 								<option value="bio">Bio</option>
 								<option value="storage">Storage</option>
 								<option value="other">Other</option>
-
-
 							</select>
 							<!-- <ul class="dropeddown" id="propertyType">
 										<li>Solar</li>
@@ -316,40 +314,30 @@
 							<!-- </div> -->
 						</div>
 						<div class="form_field tpmax">
-							<div class="form-group">
-								<div class="drop-menu">
-									<div class="select">
-										<span>Min Price</span>
-										<i class="fa fa-angle-down"></i>
-									</div>
-									<input type="hidden">
-									<ul class="dropeddown">
-										<li>20,000$</li>
-										<li>30,000$</li>
-										<li>40,000$</li>
-										<li>50,000$</li>
-										<li>60,000$</li>
-									</ul>
-								</div>
-							</div>
+							<select name="min" class="form-control">
+								<option value="" selected>min</option>
+								<option value="0">0</option>
+								<option value="100000">100,000</option>
+								<option value="500000">500,000</option>
+								<option value="1000000">1,000,000</option>
+								<option value="5000000">5,000,000</option>
+								<option value="10000000">10,000,000</option>
+								<option value="20000000">20,000,000</option>
+								<option value="100000000">100,000,000</option>
+							</select>
 						</div>
 						<div class="form_field tpmax">
-							<div class="form-group">
-								<div class="drop-menu">
-									<div class="select">
-										<span>Max Price</span>
-										<i class="fa fa-angle-down"></i>
-									</div>
-									<input type="hidden">
-									<ul class="dropeddown">
-										<li>60,000,000$</li>
-										<li>70,000,000$</li>
-										<li>80,000,000$</li>
-										<li>90,000,000$</li>
-										<li>100,000,000$</li>
-									</ul>
-								</div>
-							</div>
+							<select name="max" class="form-control">
+								<option value="" selected>max</option>
+								<option value="0">0</option>
+								<option value="100000">100,000</option>
+								<option value="500000">500,000</option>
+								<option value="1000000">1,000,000</option>
+								<option value="5000000">5,000,000</option>
+								<option value="10000000">10,000,000</option>
+								<option value="20000000">20,000,000</option>
+								<option value="100000000">100,000,000</option>
+							</select>
 						</div>
 						<div class="form_field srch-btn">
 							<button type="submit" class="btn btn-outline-primary">
