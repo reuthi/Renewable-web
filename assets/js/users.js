@@ -16,7 +16,7 @@ async function register() {
     const url = `username=${username}&email=${email}&password=${password}`;
     try {
         const response = await makeRequest("post", `${apiUrl}/auth/local/register`, url)
-        console.log("response", response)
+        const email = await makeRequest("post", `${apiUrl}/auth/send-email-confirmation`, {email})
         const jwt = JSON.parse(response).jwt
         saveToLocalStorage(localStorageKey.jwt, jwt);
         saveToLocalStorage(localStorageKey.username, username);
@@ -27,7 +27,6 @@ async function register() {
         isUserConnected()
         return false
     } catch (error) {
-
         console.log("erroe", $(".register-error"), JSON.parse(error.statusText).message[0].messages[0].message)
         $(".register-error").html(JSON.parse(error.statusText).message[0].messages[0].message)
     }

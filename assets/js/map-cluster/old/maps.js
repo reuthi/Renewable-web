@@ -3,6 +3,7 @@ function startMap(jquery,propertiesToRender) {
     "use strict";
 
     function initMap() {
+        console.log('kajsbdabs')
         var t = new InfoBox;
 
         function o(propertyPage, t, country, l, i, s) {
@@ -210,6 +211,7 @@ function startMap(jquery,propertiesToRender) {
                 enableEventPropagation: !1
             },
             markers = [];
+        console.log("ndsbfnmsdfp", p)
         for (p = 0; p < mapMarkers.length; p++) {
             markerIcon = mapMarkers[p][4];
             var marker = new setToMap(new google.maps.LatLng(mapMarkers[p][1], mapMarkers[p][2]), map, {
@@ -479,11 +481,13 @@ function startMap(jquery,propertiesToRender) {
     var singleListingMapContainer = document.getElementById("singleListingMap");
 
     function setToMap(latlng, map, o, l) {
+        console.log("setting map")
         this.position = latlng,
             this.args = o,
             console.log("function s: this", this)
         console.log("t", map)
         var marker = new google.maps.Marker(this);
+        marker.setPosition(new google.maps.LatLng());
         marker.setMap(map)
     }
 

@@ -21,7 +21,7 @@
             && properyType ? property.properyType === property: true
             && min ? property.salesPrice ? property.salesPrice > min : true :true
             && max ? property.salesPrice ? property.salesPrice < max : true :true
-            )
+        )
         .map((property, index) => {
             let propertyIcon;
             console.log("property", property)
@@ -219,6 +219,7 @@
                 enableEventPropagation: !1
             },
             f = [];
+            console.log("propertyMarkers", propertyMarkers)
         for (p = 0; p < propertyMarkers.length; p++) {
             c = propertyMarkers[p][4];
             var y = new setToMap(new google.maps.LatLng(propertyMarkers[p][1], propertyMarkers[p][2]), m, {

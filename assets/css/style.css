@@ -5312,7 +5312,8 @@ header.fix {
 #sign-popup.active.popup,
 #register-popup.active.popup,
 #contact-popup.active.popup,
-#thankyou-popup.active.popup {
+#thankyou-popup.active.popup,
+#request-login-popup.active.popup {
   opacity: 1;
   z-index: 99999;
   visibility: visible;
@@ -5320,7 +5321,8 @@ header.fix {
 }
 
 div#contact-popup,
-div#thankyou-popup {
+div#thankyou-popup,
+div#request-login-popup {
   padding: 2%;
   /* font-size: 25px; */
 }
@@ -6737,4 +6739,10 @@ label.error {
 
 .register-error {
   color: red;
+}
+
+
+#register-popup {
+  max-height: 80vh;
+  overflow: scroll;
 }

@@ -9,7 +9,7 @@ $(window).on("load", async function () {
 
     isUserConnected()
     markHeaderByUrl()
-
+    console.log($("#contact-popup"), '&&&&&&&&&&&&&')
     $(".features-dv form ul li input:checkbox").on("click", function () {
         return false;
     });
@@ -51,10 +51,10 @@ $(window).on("load", async function () {
         $(".wrapper").addClass("overlay-bgg");
     });
     $(".open-contact-popup").on("click", function () {
-        $("#contact-popup").toggleClass("active");
-        $("#register-popup").removeClass("active");
-        $("#sign-popup").removeClass("active");
-        $(".wrapper").addClass("overlay-bgg");
+        // $("#contact-popup").toggleClass("active");
+        // $("#register-popup").removeClass("active");
+        // $("#sign-popup").removeClass("active");
+        // $(".wrapper").addClass("overlay-bgg");
     });
     $("html").on("click", function () {
         $("#sign-popup").removeClass("active");
@@ -69,7 +69,7 @@ $(window).on("load", async function () {
         e.stopPropagation();
     });
 
-    $(".reg-op").on("click", function () {
+    $(".reg-op ").on("click", function () {
         $("#register-popup").toggleClass("active");
         $(".wrapper").addClass("overlay-bgg");
         $("#sign-popup").removeClass("active");

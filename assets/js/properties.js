@@ -1,8 +1,7 @@
-
 async function getProperties() {
     const response = await makeRequest("get", `${apiUrl}/Properties`)
     // console.log(response)
-    properties = [...properties,  ...JSON.parse(response)]
+    properties = [...properties, ...JSON.parse(response)]
 }
 
 async function loadProperties(length) {
@@ -53,14 +52,22 @@ async function loadProperties(length) {
 }
 
 function getProperty() {
+    console.log("getProperty")
+    const div = document.createElement('div');
     var params = (new URL(window.location)).searchParams.toString();
     params = params.substring(params.indexOf('=') + 1, params.length);
     if (!params) return
+    if (!localStorage.getItem(localStorageKey.jwt)) {
+        $("#request-login-popup").addClass("active");
+        $("#register-popup").removeClass("active");
+        $("#sign-popup").removeClass("active");
+        $(".wrapper").addClass("overlay-bgg");
+        return
+    }
     const index = parseInt(params)
     const property = properties[index]
-    const div = document.createElement('div');
     div.innerHTML =
-`             <div class="container">
+        `             <div class="container">
         <div class="property-hd-sec">
             <div class="card">
                 <div class="card-body">
@@ -117,17 +124,18 @@ function getProperty() {
         container.appendChild(div)
     }
 }
+
 function getDetails(property) {
     let list = ``;
     Object.keys(propertyDetailsKeys).forEach(key => {
-        list += property[key] 
-        ? `<li>
+        list += property[key] ?
+            `<li>
             <h4>${propertyDetailsKeys[key]}: </h4>
             <span>${key === 'ConstructionDate' || key === 'ComissioningDate' ? new Date(property[key]).toDateString() : property[key]}</span>
         </li>` : ``
     })
     return list
-    
+
 }
 
 loadProperties()
