@@ -6,13 +6,11 @@ async function getProperties() {
 }
 
 async function loadProperties(length) {
-    console.log("loadProperties")
     await getProperties()
     const div = document.createElement('div');
     div.className = 'row'
     const end = length ? length : properties.length
     properties.slice(0, end).forEach((property, index) => {
-        console.log(property)
         div.innerHTML +=
             `<div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="card">

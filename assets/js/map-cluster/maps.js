@@ -24,6 +24,7 @@
             )
         .map((property, index) => {
             let propertyIcon;
+            console.log("property", property)
             switch (property.propertyType) {
                 case 'wind':
                     propertyIcon = 'fa-wind'
