@@ -4736,6 +4736,16 @@ header.fix {
   margin-bottom: 35px;
 }
 
+.action-info {
+  float: left;
+  width: 100%;
+  padding: 23px 30px 23px 30px;
+  color: white;
+  background-color: #85be84;
+  border: 1px solid #dfe0e5;
+  margin-bottom: 35px;
+}
+
 .details-info ul {
   float: left;
   width: 100%;
