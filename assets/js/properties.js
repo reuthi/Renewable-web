@@ -52,12 +52,9 @@ async function loadProperties(length) {
 }
 
 function getProperty() {
-    console.log("getProperty")
     const div = document.createElement('div');
     var params = (new URL(window.location)).searchParams.toString();
     var pathname = (new URL(window.location)).pathname;
-
-    console.log((new URL(window.location)))
     params = params.substring(params.indexOf('=') + 1, params.length);
     if (!params) return
     if (!localStorage.getItem(localStorageKey.jwt) && pathname === '/property.html') {

@@ -47,6 +47,7 @@ $(window).on("load", async function () {
     ===============================================*/
     $(".signin-op, .signin-open").on("click", function () {
         $("#sign-popup").toggleClass("active");
+        $("#request-login-popup").removeClass("active");
         $("#register-popup").removeClass("active");
         $(".wrapper").addClass("overlay-bgg");
     });
@@ -57,6 +58,7 @@ $(window).on("load", async function () {
         // $(".wrapper").addClass("overlay-bgg");
     });
     $("html").on("click", function () {
+        $("#request-login-popup").removeClass("active");
         $("#sign-popup").removeClass("active");
         $("#contact-popup").removeClass("active");
         $("#thankyou-popup").removeClass("active");
@@ -73,6 +75,7 @@ $(window).on("load", async function () {
         $("#register-popup").toggleClass("active");
         $(".wrapper").addClass("overlay-bgg");
         $("#sign-popup").removeClass("active");
+        $("#request-login-popup").removeClass("active");
     });
     $("html").on("click", function () {
         $("#register-popup").removeClass("active");
