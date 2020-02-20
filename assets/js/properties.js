@@ -97,7 +97,7 @@ function getProperty() {
                         <div class="property-imgs">
                             <div class="property-main-img">
                                 <div class="property-img">
-                                    <img src="https://via.placeholder.com/770x515" alt="">
+                                    <img src="assets/properties/${index+1}.jpg" alt="">
                                 </div><!--property-img end-->
                             </div><!--property-main-img end-->
                         </div><!--property-imgs end-->
