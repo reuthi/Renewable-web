@@ -1,9 +1,9 @@
 <div class="popup" id="sign-popup">
     <h3>Sign In to your Account</h3>
     <div class="popup-form">
-        <form onsubmit="signIn(); return false">
+        <form onsubmit="signin(event);">
             <div class="form-field">
-                <input type="text" name="identifier" placeholder="Username" required>
+                <input type="text" name="email" placeholder="email" required>
             </div>
             <div class="form-field">
                 <input type="password" name="password" placeholder="Password" required>
@@ -18,10 +18,10 @@
                         </label>
                     </div>
                 </div>
-                <a href="#" title="">Forgot Password?</a>
             </div>
             <!--form-cp end-->
-            <button type="submit" class="btn2">Sign In</button>
+            <h5 class="signin-error"></h5>
+            <button type="" class="btn2">Sign In</button>
         </form>
     </div>
 </div>
@@ -292,8 +292,7 @@
                     <option value="Zambia">Zambia</option>
                     <option value="Zimbabwe">Zimbabwe</option>
                 </select>
-            </div>
-            
+            </div>          
             <div class="form-cp">
                 <div class="form-field">
                     <div class="input-field">

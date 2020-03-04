@@ -1,12 +1,10 @@
 async function getProperties() {
     const response = await makeRequest("get", `${apiUrl}/Properties`)
-    // console.log(response)
     properties = [...properties, ...JSON.parse(response)]
 }
 
 async function loadProperties(length) {
     await getProperties()
-    // initMap()
     startMap()
     const div = document.createElement('div');
     div.className = 'row'

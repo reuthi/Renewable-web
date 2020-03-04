@@ -6748,7 +6748,8 @@ label.error {
   font-family: "Raleway", sans-serif !important;
 }
 
-.register-error {
+.register-error,
+.signin-error {
   color: red;
 }
 
