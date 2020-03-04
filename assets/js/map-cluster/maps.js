@@ -1,21 +1,19 @@
-!function startMap (e) {
+function startMap () {
     "use strict";
-    function initMap() {
+    async function initMap() {
         var t=new InfoBox;
-        function o(propertyPage, t, country, l, i, s) {
-            // console.log(propertyPage, t, country, l, i, s)
-            return '<a href="' + propertyPage + '" class="listing-img-container"><div><div class="listing-item-content"><h3>' + country + "</h3><span><i class='la la-map-marker'></i>" + l + "</span></div></a>"
+        function o(propertyPage, imageSrc, country, l, i, s) {
+            return '<a href="' + propertyPage + '" class="listing-img-container"><img src="'+ imageSrc +'"><div><div class="listing-item-content"><span><i class="la la-map-marker"></i>' + l + '</span> <h3>' + country + "</h3></div></a>"
         }
         let propertyMarkers = [],
-            i = e("#map").attr("data-map-zoom"),
-            a = e("#map").attr("data-map-scroll");
+            i = $("#map").attr("data-map-zoom"),
+            a = $("#map").attr("data-map-scroll");
 
         var url = new URL(window.location.href);
         var country = url.searchParams.get("country");
         var properyType = url.searchParams.get("properyType");    
         var min = url.searchParams.get("min");      
-        var max = url.searchParams.get("max");      
-
+        var max = url.searchParams.get("max");  
         propertyMarkers = properties.filter(property => 
             country ? property.country === country : true 
             && properyType ? property.properyType === property: true
@@ -24,7 +22,6 @@
         )
         .map((property, index) => {
             let propertyIcon;
-            console.log("property", property)
             switch (property.propertyType) {
                 case 'wind':
                     propertyIcon = 'fa-wind'
@@ -46,7 +43,7 @@
                     break;
             }
             const propertyPage = USERNAME ? "24_Property_Single.html" + `?${index}` : '/#'
-            return [o(propertyPage, `assets/images/listing/${+1}.jpg`, "", `${property.Country}`),
+            return [o(propertyPage, `assets/properties/${index + 1}.jpg`,`${property.region}`, "" ),
                 property.lat,
                 property.lng,
                 index + 1,
@@ -188,12 +185,12 @@
                 }]
             }]
         });
-        e(".listing-item-container").on("mouseover", function () {
-            if (void 0 !== e(this).data("marker-id")) {
-                var t = e(this).data("marker-id") - 1,
+        $(".listing-item-container").on("mouseover", function () {
+            if (void 0 !== $(this).data("marker-id")) {
+                var t = $(this).data("marker-id") - 1,
                     o = f[t].div;
-                e(o).addClass("clicked"), e(this).on("mouseout", function () {
-                    e(o).is(":not(.infoBox-opened)") && e(o).removeClass("clicked")
+                $(o).addClass("clicked"), $(this).on("mouseout", function () {
+                    $(o).is(":not(.infoBox-opened)") && $(o).removeClass("clicked")
                 })
             }
         });
@@ -219,7 +216,6 @@
                 enableEventPropagation: !1
             },
             f = [];
-            console.log("propertyMarkers", propertyMarkers)
         for (p = 0; p < propertyMarkers.length; p++) {
             c = propertyMarkers[p][4];
             var y = new setToMap(new google.maps.LatLng(propertyMarkers[p][1], propertyMarkers[p][2]), m, {
@@ -243,8 +239,8 @@
                             propertyMarkers[i].open = true;
 
                             t.setOptions(d), g.innerHTML = propertyMarkers[i][0], t.open(m, o), propertyMarkers[i][3], google.maps.event.addListener(t, "domready", function () {
-                                e(".infoBox-close").click(function (o) {
-                                    o.preventDefault(), t.close(), e(".map-marker-container").removeClass("clicked infoBox-opened")
+                                $(".infoBox-close").click(function (o) {
+                                    o.preventDefault(), t.close(), $(".map-marker-container").removeClass("clicked infoBox-opened")
                                 })
                             })
                         }
@@ -287,15 +283,15 @@
                 })
         }
         (u, m);
-        var v = e("#scrollEnabling");
-        e(v).click(function (t) {
-                t.preventDefault(), e(this).toggleClass("enabled"), e(this).is(".enabled") ? m.setOptions({
+        var v = $("#scrollEnabling");
+        $(v).click(function (t) {
+                t.preventDefault(), $(this).toggleClass("enabled"), $(this).is(".enabled") ? m.setOptions({
                     scrollwheel: !0
                 }) : m.setOptions({
                     scrollwheel: !1
                 })
             }),
-            e("#geoLocation, .input-with-icon.location a").click(function (e) {
+            $("#geoLocation, .input-with-icon.location a").click(function (e) {
                 e.preventDefault(), navigator.geolocation && navigator.geolocation.getCurrentPosition(function (e) {
                     var t = new google.maps.LatLng(e.coords.latitude, e.coords.longitude);
                     m.setCenter(t), m.setZoom(12)
@@ -305,8 +301,8 @@
     var o = document.getElementById("map");
     function buildSingleListing() {
         var t = new google.maps.LatLng({
-                lng: e("#singleListingMap").data("longitude"),
-                lat: e("#singleListingMap").data("latitude")
+                lng: $("#singleListingMap").data("longitude"),
+                lat: $("#singleListingMap").data("latitude")
             }),
             o = new google.maps.Map(document.getElementById("singleListingMap"), {
                 zoom: 15,
@@ -450,7 +446,7 @@
                     }]
                 }]
             });
-        e("#streetView").click(function (e) {
+        $("#streetView").click(function (e) {
             e.preventDefault(), o.getStreetView().setOptions({
                 visible: !0,
                 position: t
@@ -477,7 +473,7 @@
                 })
         }
         (l, o);
-        var i = "<i class='" + e("#singleListingMap").data("map-icon") + "'></i>";
+        var i = "<i class='" + $("#singleListingMap").data("map-icon") + "'></i>";
         new setToMap(t, o, {
             marker_id: "1"
         }, i)
@@ -498,21 +494,21 @@
                 o = this.div;
             o || ((o = this.div = document.createElement("div")).className = "map-marker-container", o.innerHTML = '<div class="marker-container"><div class="marker-card"><div class="front face">' + t.markerIco + '</div><div class="back face">' + t.markerIco + '</div><div class="marker-arrow"></div></div></div>', google.maps.event.addDomListener(o, "click", function (o) {
                 var open = false;
-                if (e(this).hasClass("infoBox-opened"))
+                if ($(this).hasClass("infoBox-opened"))
                     open = true;
-                e(".map-marker-container").removeClass("clicked infoBox-opened"),
+                $(".map-marker-container").removeClass("clicked infoBox-opened"),
                     google.maps.event.trigger(t, "click");
                 if (!open) {
-                    e(this).addClass("clicked infoBox-opened");
+                    $(this).addClass("clicked infoBox-opened");
                 }
             }), void 0 !== t.args.marker_id && (o.dataset.marker_id = t.args.marker_id), this.getPanes().overlayImage.appendChild(o));
             var l = this.getProjection().fromLatLngToDivPixel(this.latlng);
             l && (o.style.left = l.x + "px", o.style.top = l.y + "px")
         },
         setToMap.prototype.remove = function () {
-            this.div && (this.div.parentNode.removeChild(this.div), this.div = null, e(this).removeClass("clicked"))
+            this.div && (this.div.parentNode.removeChild(this.div), this.div = null, $(this).removeClass("clicked"))
         },
         setToMap.prototype.getPosition = function () {
             return this.latlng
         }
-}(this.jQuery)
+}

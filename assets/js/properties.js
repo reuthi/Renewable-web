@@ -6,6 +6,8 @@ async function getProperties() {
 
 async function loadProperties(length) {
     await getProperties()
+    // initMap()
+    startMap()
     const div = document.createElement('div');
     div.className = 'row'
     const end = length ? length : properties.length

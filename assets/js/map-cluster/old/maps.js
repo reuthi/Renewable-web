@@ -3,20 +3,18 @@ function startMap(jquery,propertiesToRender) {
     "use strict";
 
     function initMap() {
-        console.log('kajsbdabs')
         var t = new InfoBox;
 
         function o(propertyPage, t, country, l, i, s) {
-            // console.log(propertyPage, t, country, l, i, s)
+            console.log("o")
+            console.log(country, "l", l)
             return '<a href="' + propertyPage + '" class="listing-img-container"><div><div class="listing-item-content"><h3>' + country + "</h3><span><i class='la la-map-marker'></i>" + l + "</span></div></a>"
         }
         let mapMarkers = [],
             i = jquery("#map").attr("data-map-zoom"),
             a = jquery("#map").attr("data-map-scroll");
         mapMarkers = propertiesToRender.map((property, index) => {
-            console.log(property, USERNAME)
             let propertyIcon;
-            console.log(property.PropertyType)
             switch (property.PropertyType) {
                 case 'Wind':
                     propertyIcon = 'fa-wind'
