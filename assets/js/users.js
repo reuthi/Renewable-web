@@ -34,6 +34,11 @@ function isUserConnected() {
                     <span><b class="">Hello, ${USERNAME}</b></span>
                 </a>
             </li>
+            <li>
+                <a href="#" class="nav-link">
+                    <span onclick="signOut()" class="">Sign out</span>
+                </a>
+            </li>
         `);
     }
 }
@@ -66,5 +71,10 @@ async function signin(e) {
 
     }
     return false
+}
 
+async function signOut() {
+    localStorage.removeItem(localStorageKey.jwt)
+    localStorage.removeItem(localStorageKey.username)
+    window.location.reload()
 }
